@@ -201,3 +201,15 @@
 	
 2026-06-18 14:37:59.977 IST [178612] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
 	
+2026-06-18 14:45:01.972 IST [177424] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2026-06-18 14:45:01.972 IST [175816] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2026-06-18 14:45:02.318 IST [161496] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2026-06-18 14:45:02.318 IST [160040] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2026-06-18 14:45:03.502 IST [157404] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2026-06-18 14:45:03.502 IST [166604] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	

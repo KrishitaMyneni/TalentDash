@@ -1,99 +1,69 @@
 @import "tailwindcss";
 
 :root {
-  --brand-green: #77dd77;
-  --brand-green-dark: #5cb85c;
-  --brand-green-light: #a8e6a8;
-  --background: #ffffff;
-  --foreground: #111827;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-brand: var(--brand-green);
-  --color-brand-dark: var(--brand-green-dark);
-  --color-brand-light: var(--brand-green-light);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-}
-@import "tailwindcss";
-
-:root {
-  --brand-green: #77dd77;
-  --brand-green-dark: #5cb85c;
-  --brand-green-light: #a8e6a8;
-  --background: #fafafa;
+  --brand-coral: #ff5a5f;
+  --brand-coral-dark: #e04b50;
+  --brand-green: #008a05;
+  --brand-orange: #ffb400;
+  --brand-red: #d93025;
+  --background: #f7f7f7;
+  --surface: #ffffff;
   --foreground: #222222;
+  --body-text: #484848;
+  --muted-text: #717171;
+  --border: #ebebeb;
+  --hover-surface: #f2f2f2;
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-surface: var(--surface);
   --color-foreground: var(--foreground);
-  --color-brand: var(--brand-green);
-  --color-brand-dark: var(--brand-green-dark);
-  --color-brand-light: var(--brand-green-light);
-  --font-sans: var(--font-geist-sans);
+  --color-brand: var(--brand-coral);
+  --color-brand-dark: var(--brand-coral-dark);
+  --color-success: var(--brand-green);
+  --color-warning: var(--brand-orange);
+  --color-danger: var(--brand-red);
+  --color-border: var(--border);
+  --color-hover-surface: var(--hover-surface);
+  --font-sans: var(--font-inter);
   --font-mono: var(--font-geist-mono);
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-* {
+a,
+button,
+input,
+select,
+textarea {
   transition-property: background-color, border-color, color, box-shadow, transform;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
-@import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
+  color: var(--body-text);
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont,
+    Inter, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: var(--foreground);
-}
-@import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }

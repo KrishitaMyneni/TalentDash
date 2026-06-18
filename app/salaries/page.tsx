@@ -28,7 +28,7 @@ export async function generateMetadata({
   if (role) titleParts.push(`${role}`);
   if (location) titleParts.push(location);
 
-  const title = titleParts.join(" — ");
+  const title = titleParts.join(" - ");
   const description = `Browse ${
     company ? `${company} ` : ""
   }salary data${role ? ` for ${role}` : ""}${
@@ -107,7 +107,6 @@ export default async function SalariesPage({ searchParams }: SalariesPageProps) 
     prisma.salary.count({ where }),
   ]);
 
-  // Convert Prisma Decimal objects to numbers for Client Component serialization
   const salaries = rawSalaries.map((s: (typeof rawSalaries)[number]) => ({
     ...s,
     base_salary: Number(s.base_salary),
@@ -179,9 +178,7 @@ export default async function SalariesPage({ searchParams }: SalariesPageProps) 
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            salaries.map((s) => salaryJsonLd(s))
-          ),
+          __html: JSON.stringify(salaries.map((s) => salaryJsonLd(s))),
         }}
       />
     </div>

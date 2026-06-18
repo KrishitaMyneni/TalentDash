@@ -35,7 +35,7 @@ export function SalaryTable({ salaries }: SalaryTableProps) {
             <TableCell>
               <Link
                 href={`/companies/${salary.company.slug}`}
-                className="font-semibold text-gray-900 hover:text-[#77dd77]"
+                className="font-semibold text-foreground hover:text-[#ff5a5f] transition-colors"
               >
                 {salary.company.name}
               </Link>
@@ -59,7 +59,7 @@ export function SalaryTable({ salaries }: SalaryTableProps) {
               )}
             </TableCell>
             <TableCell>
-              <span className="text-base font-bold text-[#77dd77]">
+              <span className="text-base font-bold text-[#ff5a5f]">
                 {formatCurrency(
                   Number(salary.total_compensation),
                   salary.currency as Currency

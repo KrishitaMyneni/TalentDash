@@ -8,10 +8,10 @@ interface EmptyStateProps {
 
 export function EmptyState({ title, description, actions }: EmptyStateProps) {
   return (
-    <div className="flex flex-col items-center rounded-2xl border border-gray-200 bg-white px-6 py-16 text-center">
-      <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-[#77dd77]/10">
+    <div className="flex flex-col items-center rounded-2xl border border-gray-200 bg-white px-6 py-16 text-center shadow-sm">
+      <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-[#ff5a5f]/10">
         <svg
-          className="h-8 w-8 text-[#77dd77]"
+          className="h-8 w-8 text-[#ff5a5f]"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -32,7 +32,7 @@ export function EmptyState({ title, description, actions }: EmptyStateProps) {
             <Link
               key={action.href}
               href={action.href}
-              className="rounded-lg bg-[#77dd77] px-4 py-2 text-sm font-medium text-white shadow-sm transition-all hover:bg-[#5cb85c]"
+              className="rounded-lg bg-[#ff5a5f] px-4 py-2 text-sm font-medium text-white shadow-sm transition-all hover:bg-[#e04b50] hover:shadow-md"
             >
               {action.label}
             </Link>

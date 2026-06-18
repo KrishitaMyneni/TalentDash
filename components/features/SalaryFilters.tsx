@@ -79,46 +79,63 @@ export function SalaryFilters() {
     [router, createQueryString]
   );
 
-  // Debounced search for text inputs
-  const debounceAndSearch = useCallback(
-    (key: string, value: string) => {
-      const timeoutId = setTimeout(() => {
-        updateFilters({ [key]: value });
-      }, 500);
-      return timeoutId;
-    },
-    [updateFilters]
-  );
-
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   const handleCompanyChange = useCallback(
     (value: string) => {
       setCompanyValue(value);
-      debounceAndSearch("company", value);
     },
-    [debounceAndSearch]
+    []
   );
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   const handleRoleChange = useCallback(
     (value: string) => {
       setRoleValue(value);
-      debounceAndSearch("role", value);
     },
-    [debounceAndSearch]
+    []
   );
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   const handleLocationChange = useCallback(
     (value: string) => {
       setLocationValue(value);
-      debounceAndSearch("location", value);
     },
-    [debounceAndSearch]
+    []
   );
 
+  useEffect(() => {
+    const currentCompany = searchParams.get("company") ?? "";
+    if (companyValue === currentCompany) return;
+
+    const timeoutId = setTimeout(() => {
+      updateFilters({ company: companyValue });
+    }, 500);
+
+    return () => clearTimeout(timeoutId);
+  }, [companyValue, searchParams, updateFilters]);
+
+  useEffect(() => {
+    const currentRole = searchParams.get("role") ?? "";
+    if (roleValue === currentRole) return;
+
+    const timeoutId = setTimeout(() => {
+      updateFilters({ role: roleValue });
+    }, 500);
+
+    return () => clearTimeout(timeoutId);
+  }, [roleValue, searchParams, updateFilters]);
+
+  useEffect(() => {
+    const currentLocation = searchParams.get("location") ?? "";
+    if (locationValue === currentLocation) return;
+
+    const timeoutId = setTimeout(() => {
+      updateFilters({ location: locationValue });
+    }, 500);
+
+    return () => clearTimeout(timeoutId);
+  }, [locationValue, searchParams, updateFilters]);
+
   return (
-    <div className="rounded-lg border border-slate-200 bg-white p-4">
+    <div className="rounded-xl border border-gray-200 bg-gradient-to-br from-white to-gray-50 p-6 shadow-sm">
+      <h3 className="mb-4 text-sm font-semibold text-gray-900">Filters</h3>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-6">
         <Input
           name="company"

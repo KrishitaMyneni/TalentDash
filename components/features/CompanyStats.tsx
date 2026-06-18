@@ -1,6 +1,6 @@
 import { Currency } from "@prisma/client";
 import { formatCurrency } from "@/lib/currency";
-import { Badge } from "@/components/ui/Badge";
+import { LevelPieChart } from "@/components/features/LevelPieChart";
 
 interface CompanyStatsProps {
   medianTotalCompensation: number;
@@ -16,31 +16,35 @@ export function CompanyStats({
   currency,
 }: CompanyStatsProps) {
   return (
-    <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-      <div className="rounded-lg border border-slate-200 bg-white p-6">
-        <p className="text-sm font-medium text-slate-600">Median Total Comp</p>
-        <p className="mt-2 text-2xl font-bold text-slate-900">
+    <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
+      <div className="rounded-xl border border-border bg-gradient-to-br from-white to-[#fff8f8] p-6 shadow-sm transition-all hover:shadow-md">
+        <p className="text-xs font-semibold uppercase text-muted-text">
+          Median Total Comp
+        </p>
+        <p className="mt-3 text-3xl font-bold bg-gradient-to-r from-[#ff5a5f] to-[#e04b50] bg-clip-text text-transparent">
           {formatCurrency(medianTotalCompensation, currency)}
         </p>
       </div>
-      <div className="rounded-lg border border-slate-200 bg-white p-6">
-        <p className="text-sm font-medium text-slate-600">Salary Range</p>
-        <p className="mt-2 text-2xl font-bold text-slate-900">
-          {formatCurrency(salaryRange.min, currency)} -{" "}
-          {formatCurrency(salaryRange.max, currency)}
+      <div className="rounded-xl border border-border bg-gradient-to-br from-white to-[#fff8f8] p-6 shadow-sm transition-all hover:shadow-md">
+        <p className="text-xs font-semibold uppercase text-muted-text">
+          Salary Range
+        </p>
+        <p className="mt-3 text-xl font-bold text-foreground">
+          <span className="text-2xl bg-gradient-to-r from-[#ff5a5f] to-[#e04b50] bg-clip-text text-transparent">
+            {formatCurrency(salaryRange.min, currency)}
+          </span>
+          <span className="mx-2 text-muted-text">-</span>
+          <span className="text-2xl bg-gradient-to-r from-[#ff5a5f] to-[#e04b50] bg-clip-text text-transparent">
+            {formatCurrency(salaryRange.max, currency)}
+          </span>
         </p>
       </div>
-      <div className="rounded-lg border border-slate-200 bg-white p-6">
-        <p className="text-sm font-medium text-slate-600">Level Distribution</p>
-        <div className="mt-2 flex flex-wrap gap-2">
-          {Object.entries(levelDistribution)
-            .sort(([a], [b]) => a.localeCompare(b))
-            .map(([level, count]) => (
-              <div key={level} className="flex items-center gap-1">
-                <Badge level={level as never} />
-                <span className="text-sm text-slate-600">{count}</span>
-              </div>
-            ))}
+      <div className="rounded-xl border border-border bg-gradient-to-br from-white to-[#fff8f8] p-6 shadow-sm transition-all hover:shadow-md">
+        <p className="text-xs font-semibold uppercase text-muted-text">
+          Level Distribution
+        </p>
+        <div className="mt-4">
+          <LevelPieChart data={levelDistribution} />
         </div>
       </div>
     </div>

@@ -19,7 +19,7 @@ export function Pagination({ page, totalPages, buildHref }: PaginationProps) {
       {page > 1 && (
         <a
           href={buildHref(page - 1)}
-          className="rounded-lg border border-gray-200 px-3 py-2 text-sm font-medium text-gray-700 transition-all hover:border-[#77dd77] hover:text-[#77dd77]"
+          className="rounded-lg border border-border px-3 py-2 text-sm font-medium text-body-text transition-all hover:border-[#ff5a5f] hover:text-[#ff5a5f] hover:shadow-sm"
         >
           Previous
         </a>
@@ -31,8 +31,8 @@ export function Pagination({ page, totalPages, buildHref }: PaginationProps) {
           href={buildHref(p)}
           className={`rounded-lg px-3 py-2 text-sm font-medium transition-all ${
             p === page
-              ? "bg-[#77dd77] text-white shadow-sm"
-              : "text-gray-700 hover:bg-gray-50 hover:text-[#77dd77]"
+              ? "bg-[#ff5a5f] text-white shadow-md shadow-[#ff5a5f]/30"
+              : "text-body-text hover:bg-hover-surface hover:text-[#ff5a5f]"
           }`}
         >
           {p}
@@ -42,7 +42,7 @@ export function Pagination({ page, totalPages, buildHref }: PaginationProps) {
       {page < totalPages && (
         <a
           href={buildHref(page + 1)}
-          className="rounded-lg border border-gray-200 px-3 py-2 text-sm font-medium text-gray-700 transition-all hover:border-[#77dd77] hover:text-[#77dd77]"
+          className="rounded-lg border border-border px-3 py-2 text-sm font-medium text-body-text transition-all hover:border-[#ff5a5f] hover:text-[#ff5a5f] hover:shadow-sm"
         >
           Next
         </a>

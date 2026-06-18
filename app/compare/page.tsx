@@ -162,6 +162,9 @@ export default async function ComparePage({ searchParams }: ComparePageProps) {
           <p className="mt-2 text-lg text-gray-600">
             {salary1.company.name} vs {salary2.company.name}
           </p>
+          <p className="mt-1 text-sm text-gray-500">
+            The right-side offer is compared against the left-side offer.
+          </p>
         </div>
         <Link
           href="/compare"
