@@ -122,11 +122,12 @@ export default async function CompanyPage({ params }: CompanyPageProps) {
           salaryRange={salaryRange}
           levelDistribution={levelDistribution}
           currency={primaryCurrency}
+          recordCount={salaries.length}
         />
       </div>
 
-      <div className="mt-8">
-        <h2 className="mb-4 text-xl font-semibold text-slate-900">
+      <div className="mt-12">
+        <h2 className="mb-4 text-xl font-semibold text-foreground">
           Salary Records
         </h2>
         {salaries.length > 0 ? (

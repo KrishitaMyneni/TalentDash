@@ -61,68 +61,37 @@ export function LevelPieChart({ data }: PieChartProps) {
   });
 
   return (
-    <div className="flex flex-col gap-4">
-      {/* Pie Chart */}
-      <div className="relative mx-auto h-40 w-40">
-        <svg viewBox="0 0 100 100" className="h-full w-full">
-          {segments.map((segment, index) => (
-            <path
-              key={segment.level}
-              d={segment.pathData}
-              fill={segment.color}
-              className="transition-all duration-200"
-              style={{
-                opacity: hoveredIndex === null || hoveredIndex === index ? 1 : 0.5,
-                transform: hoveredIndex === index ? "scale(1.05)" : "scale(1)",
-                transformOrigin: "center",
-                cursor: "pointer",
-              }}
-              onMouseEnter={() => setHoveredIndex(index)}
-              onMouseLeave={() => setHoveredIndex(null)}
-            />
-          ))}
-          {/* Center circle for donut effect */}
-          <circle
-            cx="50"
-            cy="50"
-            r="20"
-            fill="white"
-            className="pointer-events-none"
-          />
-        </svg>
-        {/* Center text */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-          <span className="text-2xl font-bold text-foreground">{total}</span>
-          <span className="text-xs text-muted-text">total</span>
-        </div>
-      </div>
-
-      {/* Legend */}
-      <div className="grid grid-cols-2 gap-2">
+    <div className="relative mx-auto h-40 w-40">
+      <svg viewBox="0 0 100 100" className="h-full w-full">
         {segments.map((segment, index) => (
-          <div
+          <path
             key={segment.level}
-            className="flex items-center gap-2 rounded-lg px-2 py-1.5 transition-colors hover:bg-hover-surface"
+            d={segment.pathData}
+            fill={segment.color}
+            className="transition-all duration-200"
             style={{
-              opacity: hoveredIndex === null || hoveredIndex === index ? 1 : 0.6,
+              opacity: hoveredIndex === null || hoveredIndex === index ? 1 : 0.5,
+              transform: hoveredIndex === index ? "scale(1.05)" : "scale(1)",
+              transformOrigin: "center",
+              cursor: "pointer",
             }}
             onMouseEnter={() => setHoveredIndex(index)}
             onMouseLeave={() => setHoveredIndex(null)}
-          >
-            <div
-              className="h-3 w-3 rounded-full"
-              style={{ backgroundColor: segment.color }}
-            />
-            <div className="flex-1 min-w-0">
-              <p className="text-xs font-medium text-foreground truncate">
-                {segment.level.replace("_", "-")}
-              </p>
-              <p className="text-xs text-muted-text">
-                {segment.count} ({segment.percent.toFixed(0)}%)
-              </p>
-            </div>
-          </div>
+          />
         ))}
+        {/* Center circle for donut effect */}
+        <circle
+          cx="50"
+          cy="50"
+          r="20"
+          fill="white"
+          className="pointer-events-none"
+        />
+      </svg>
+      {/* Center text */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
+        <span className="text-2xl font-bold text-foreground">{total}</span>
+        <span className="text-xs text-muted-text">total</span>
       </div>
     </div>
   );
